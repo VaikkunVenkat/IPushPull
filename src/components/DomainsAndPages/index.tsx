@@ -10,7 +10,7 @@ const DomainsAndPages: React.FC<any> = () => {
   
   return (
     <div className="Main">
-      <h1 className='viewOneHeader'>View 1</h1>
+      <h1 className='viewOneHeader'>View wrgmewio1</h1>
       {domainsAndPages.domains.map((domain: any, idx: number) => {
         const domainName = domain.display_name;
         const pages = domain.current_user_domain_page_access.pages;

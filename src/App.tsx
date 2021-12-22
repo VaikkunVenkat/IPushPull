@@ -3,7 +3,11 @@ import DomainsAndPages from './components/DomainsAndPages';
 
 const App = () => {
   return (
+    <>
     <DomainsAndPages />
+    <div>Hello</div>
+    </>
+
   );
 }
 
