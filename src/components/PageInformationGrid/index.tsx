@@ -18,6 +18,7 @@ const PageInformationGrid: React.FC<IPageInformationGridProps> = ({ domainId, pa
   const values = pageInformation && pageInformation.values;
   return (
     <>
+      <h1>View 2</h1>
       {values && (<div className='tableBackground'>
       <table>
         <thead>
