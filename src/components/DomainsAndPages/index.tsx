@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './DomainsAndPages.css';
 import { fetchDataFromAPI } from '../../utils';
 
-const DomainsAndPages: React.FC<any> = ({ handlePageItemClick }) => {
+interface IDomainAndPages {
+  handlePageItemClick: (page: any) => void;
+}
+
+const DomainsAndPages: React.FC<IDomainAndPages> = ({ handlePageItemClick }) => {
   const [domainsAndPages, setDomainsAndPages] = useState<any>(null);
   useEffect(() => {
     fetchDataFromAPI().then((response) => setTimeout(() => setDomainsAndPages(response), 1500));
