@@ -1,30 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import './DomainsAndPages.css';
-import { fetchDomainsAndPages } from '../../utils';
+import { fetchDataFromAPI } from '../../utils';
 
-const DomainsAndPages: React.FC<any> = () => {
+const DomainsAndPages: React.FC<any> = ({ handlePageItemClick }) => {
   const [domainsAndPages, setDomainsAndPages] = useState<any>(null);
   useEffect(() => {
-    fetchDomainsAndPages().then((response) => setDomainsAndPages(response));
+    fetchDataFromAPI().then((response) => setTimeout(() => setDomainsAndPages(response), 1500));
   }, []);
   
   return (
     <div className="Main">
-      <h1 className='viewOneHeader'>View wrgmewio1</h1>
-      {domainsAndPages.domains.map((domain: any, idx: number) => {
+      <h1 className='viewOneHeader'>View 1</h1>
+      {domainsAndPages ? domainsAndPages.domains.map((domain: any, idx: number) => {
         const domainName = domain.display_name;
         const pages = domain.current_user_domain_page_access.pages;
         return (
           <ul key={idx} className="domainName">
             <div>{domainName}</div>
-            {pages.map((page: any) => {
+            {pages.map((page: any, idx: number) => {
             return (
-              <li>{page.name}</li>
+              <li onClick={() => handlePageItemClick(page)} key={idx}>{page.name}</li>
             )
           })}
           </ul>
         );
-      })}
+      }) : ( <div>Loading IPushPull Data...</div> )}
     </div>
   );
 }
